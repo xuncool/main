@@ -13,10 +13,7 @@ module.exports = {
     'airbnb',
     'airbnb/hooks',
     'plugin:@typescript-eslint/recommended',
-    // 'prettier',
-    // 'prettier/@typescript-eslint',
-    // 'prettier/react',
-    // 'prettier/unicorn',
+    'plugin:prettier/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -26,7 +23,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['react', 'unicorn', 'promise', '@typescript-eslint'],
+  plugins: ['react', 'unicorn', 'promise', '@typescript-eslint', 'prettier'],
   rules: {
     'import/extensions': [
       ERROR,
