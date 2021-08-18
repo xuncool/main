@@ -34,7 +34,12 @@
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
   "typescript.tsdk": "./node_modules/typescript/lib", // 代替 vscode 的 ts 语法智能提示
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
@@ -43,5 +48,5 @@
   },
   "css.validate": false,
   "less.validate": false,
-  "scss.validate": false,
+  "scss.validate": false
 }
