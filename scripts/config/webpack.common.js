@@ -1,13 +1,18 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { resolve } = require('path');
+const CopyPlugin = require('copy-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const WebpackBarPlugin = require('webpackbar');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { PROJECT_PATH, IS_DEV } = require('../constant');
 
 const resolveRootPath = (path) => resolve(PROJECT_PATH, path);
 const getCssloader = (importLoaders = 1) => {
   return [
     {
-      loader: 'style-loader',
+      loader: IS_DEV ? 'style-loader' : MiniCssExtractPlugin.loader,
     },
     {
       loader: 'css-loader',
@@ -38,16 +43,20 @@ module.exports = {
     app: resolveRootPath('src/index.tsx'),
   },
   output: {
-    filename: `js/[name]${IS_DEV ? '' : '.[hash:16]'}.js`,
+    filename: `js/[name]${IS_DEV ? '' : '.[fullhash:16]'}.js`,
     path: resolveRootPath('dist'),
   },
-  devtool: 'eval-source-map',
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.json'],
     alias: {
-      Src: resolve(PROJECT_PATH, './src'),
-      Components: resolve(PROJECT_PATH, './src/components'),
-      Utils: resolve(PROJECT_PATH, './src/utils'),
+      Src: resolveRootPath('src'),
+      Components: resolveRootPath('src/components'),
+      Utils: resolveRootPath('src/utils'),
+    },
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
     },
   },
   module: {
@@ -101,11 +110,35 @@ module.exports = {
     ],
   },
   plugins: [
+    new CopyPlugin({
+      patterns: [
+        {
+          context: resolveRootPath('public'),
+          from: '**/*',
+          globOptions: {
+            dot: true,
+            gitignore: true,
+            ignore: ['**/index.html'],
+          },
+          to: resolveRootPath('dist'),
+          toType: 'dir',
+        },
+      ],
+    }),
     new HtmlWebpackPlugin({
       template: resolveRootPath('public/index.html'),
       filename: 'index.html',
       cache: false,
     }),
     new CleanWebpackPlugin(),
+    new ForkTsCheckerWebpackPlugin({
+      typescript: {
+        configFile: resolveRootPath('tsconfig.json'),
+      },
+    }),
+    new WebpackBarPlugin({
+      name: 'compiling',
+      color: '#fa8c16',
+    }),
   ],
 };

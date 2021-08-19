@@ -8,6 +8,7 @@ const logger = require('./chalk');
 const compiler = Webpack(webpackDevConfig);
 const devServerOptions = { ...webpackDevConfig.devServer };
 
+WebpaclDevServer.addDevServerEntrypoints(webpackDevConfig, devServerOptions);
 const server = new WebpaclDevServer(compiler, devServerOptions);
 
 async function startServer() {
