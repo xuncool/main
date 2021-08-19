@@ -81,7 +81,7 @@
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^5.8.0",
-    "webpackbar": "*"
+    "webpackbar": "^4.0.0"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
@@ -99,12 +99,6 @@
       "path": "./node_modules/cz-customizable"
     }
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "ie >= 9",
-    "not op_mini all"
-  ],
   "dependencies": {
     "@babel/runtime-corejs3": "^7.15.3",
     "axios": "^0.21.1",

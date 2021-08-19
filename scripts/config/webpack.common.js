@@ -4,7 +4,6 @@ const { resolve } = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const WebpackBarPlugin = require('webpackbar');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { PROJECT_PATH, IS_DEV } = require('../constant');
 

@@ -6,6 +6,7 @@ const common = require('./webpack.common');
 const proxy = require('../../proxy');
 
 module.exports = merge(common, {
+  target: 'web',
   mode: 'development',
   devtool: 'cheap-module-source-map',
   cache: {
