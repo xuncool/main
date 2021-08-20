@@ -1,22 +1,17 @@
-import React, { Suspense, useState } from 'react';
+import React, { FC } from 'react';
+import { HashRouter, Route, Switch } from 'react-router-dom';
+import { Auth } from './pages/auth';
 
-const ComputedOne = React.lazy(() => import('Components/ComputedOne'));
-const ComputedTwo = React.lazy(() => import('Components/ComputedTwo'));
-
-function App() {
-  const [showTwo, setShowTwo] = useState<boolean>(false);
-
+const App: FC = () => {
   return (
-    <div className='app'>
-      <Suspense fallback={<div>Loading...</div>}>
-        <ComputedOne a={1} b={2} />
-        {showTwo && <ComputedTwo a={3} b={4} />}
-        <button type='button' onClick={() => setShowTwo(true)}>
-          显示T1w1123o234234234
-        </button>
-      </Suspense>
-    </div>
+    <HashRouter>
+      <Switch>
+        <Route path='/auth'>
+          <Auth />
+        </Route>
+      </Switch>
+    </HashRouter>
   );
-}
+};
 
 export default App;

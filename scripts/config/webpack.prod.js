@@ -9,11 +9,11 @@ module.exports = merge(common, {
   mode: 'production',
   target: 'browserslist',
   devtool: false,
-  externals: {
-    react: 'React',
-    'react-dom': 'ReactDOM',
-    axios: 'axios',
-  },
+  // externals: {
+  //   react: 'React',
+  //   'react-dom': 'ReactDOM',
+  //   axios: 'axios',
+  // },
   optimization: {
     minimize: true,
     minimizer: [
