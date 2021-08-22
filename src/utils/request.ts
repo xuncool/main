@@ -7,3 +7,7 @@
 // export function request() {
 //   instance(this, this);
 // }
+
+export function app() {
+  console.log(12);
+}

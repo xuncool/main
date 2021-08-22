@@ -5,7 +5,12 @@ const CopyPlugin = require('copy-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const WebpackBarPlugin = require('webpackbar');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const webpack = require('webpack');
 const { PROJECT_PATH, IS_DEV } = require('../constant');
+const { getCompileVar, loadEnv } = require('../env');
+
+// 初始化环境变量
+loadEnv();
 
 const resolveRootPath = (path) => resolve(PROJECT_PATH, path);
 const getCssloader = (importLoaders = 1) => {
@@ -139,5 +144,6 @@ module.exports = {
       name: 'compiling',
       color: '#fa8c16',
     }),
+    new webpack.DefinePlugin(getCompileVar()),
   ],
 };

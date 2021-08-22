@@ -19,7 +19,7 @@ export const Login: FC = () => {
         <Input type='password' prefix={<LockOutlined />} />
       </Form.Item>
       <Form.Item name='remeberMe' valuePropName='checked'>
-        <Checkbox>记住我</Checkbox>
+        <Checkbox>记住我 {process.env.NODE_ENV}</Checkbox>
       </Form.Item>
       <Form.Item>
         <Button htmlType='submit' type='primary' className='large' block>

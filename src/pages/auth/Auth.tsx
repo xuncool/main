@@ -4,10 +4,9 @@ import { LoginLayout } from './components/LoginLayout';
 import { Login } from './Login';
 
 export const Auth = () => {
-  const { url, path } = useRouteMatch();
+  const { url } = useRouteMatch();
   return (
     <LoginLayout>
-      {path}
       <Switch>
         <Route path={`${url}/login`} exact component={Login} />
       </Switch>

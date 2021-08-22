@@ -1,9 +1,10 @@
 const { merge } = require('webpack-merge');
 const webpack = require('webpack');
 const ErrorOverlayPlugin = require('error-overlay-webpack-plugin');
-const { SERVER_HOST, SERVER_PORT } = require('../constant');
 const common = require('./webpack.common');
 const proxy = require('../../proxy');
+
+const { APP_HOST, APP_PORT } = process.env;
 
 module.exports = merge(common, {
   target: 'web',
@@ -24,8 +25,8 @@ module.exports = merge(common, {
     },
   },
   devServer: {
-    host: SERVER_HOST,
-    port: SERVER_PORT,
+    host: APP_HOST,
+    port: APP_PORT,
     stats: 'errors-only', // 终端仅打印 error
     clientLogLevel: 'silent',
     compress: true, // 是否启用 gzip 压缩
