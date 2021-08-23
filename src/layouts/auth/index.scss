@@ -1,0 +1,21 @@
+.auth-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+  background-image: url(https://static.zhihu.com/heifetz/assets/sign_bg.db29b0fb.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &-header {
+    flex: 0;
+  }
+
+  &-content {
+    width: 410px;
+    padding: 0 24px;
+    background-color: white;
+    border-radius: 1px;
+  }
+}

@@ -2,7 +2,7 @@ import { Form, Input, Checkbox, Button } from 'antd';
 import React, { FC } from 'react';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 
-export const Login: FC = () => {
+export const AccountLogin: FC = () => {
   const onFinished = () => {
     console.log('test');
   };

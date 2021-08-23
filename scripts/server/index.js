@@ -16,7 +16,7 @@ async function startServer() {
       if (err) {
         return logger.error(err.message);
       }
-      return logger.start(devServerOptions.port, devServerOptions.host);
+      return logger.start(devServerOptions.port, '127.0.0.1');
     });
   } catch (error) {
     console.log(chalk.red(error.message));
